@@ -1,0 +1,13 @@
+size_t duplicateCount(const char* in)
+{
+    int hmp[128] {0};
+    auto duplicates = std::size_t{0};
+    while (*in)
+    {
+        auto lower_c = std::tolower(*in);
+        ++hmp[lower_c];
+        if (hmp[lower_c] == 2) ++duplicates;
+        ++in;
+    }
+    return duplicates;
+}
